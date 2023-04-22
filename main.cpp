@@ -44,7 +44,6 @@ class Histogram
         }
 };
 
-
 int main()
 {
     string dataName= "MebaneData.csv";
@@ -71,7 +70,7 @@ int main()
             i = 1;
 			while(getline(str, word, ','))
             {
-				if(i == rowNum) hist.add_data(dig(stoi(word),1));
+				if(i == rowNum && isdigit(word[0])) hist.add_data(dig(stoi(word),1));
                 i++;
             }
 		}
