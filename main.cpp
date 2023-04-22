@@ -47,12 +47,12 @@ class Histogram
 int main()
 {
     string dataName= "MebaneData.csv";
+    int rowNum = 4;   
+    
+    
     ifstream data;
-
     Histogram hist;
-
-    int rowNum = 4;
-
+    
     string line, word;
     
     data.open(dataName);
