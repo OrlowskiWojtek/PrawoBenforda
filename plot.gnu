@@ -13,4 +13,4 @@ set style histogram cluster gap 0.2
 f(x) = log10(1+1/x)
 
 
-plot "gnuData.dat" using 1:2 with boxes title "Dane wyników", f(x) lw 2 title "Prawo Benforda", "gnuData.dat" using 1:(abs($2-(f($1)))) with boxes title "Różnica"
+plot "gnuData.dat" using 1:2 with boxes title "Dane wyników", f(x) lw 2 title "Prawo Benforda"#, "gnuData.dat" using 1:(abs($2-(f($1)))) with boxes title "Różnica"

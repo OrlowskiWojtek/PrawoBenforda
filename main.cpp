@@ -9,9 +9,16 @@ using namespace std;
 
 int dig(int x, int dignum)
 {
-    while(x>=pow(10,dignum))
+    if(x>pow(10,dignum))
+    {
+        while(x>=pow(10,dignum))
         x /= 10;
-    return x%10;
+        return x%10;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 class Histogram
@@ -27,6 +34,7 @@ class Histogram
         } 
         void add_data(int data)
         {
+            cout << data << endl;
             ++tab[data];
         }
         int get_val(int dig)
@@ -46,7 +54,7 @@ class Histogram
 
 int main()
 {
-    string dataName= "MebaneData.csv";
+    string dataName= "Iran_pres_2009.csv";
     int rowNum = 4;   
     
     
@@ -67,18 +75,23 @@ int main()
 		{
 			stringstream str(line);
 
-            i = 1;
-			while(getline(str, word, ','))
+            if(!line.empty())
             {
-				if(i == rowNum && isdigit(word[0])) hist.add_data(dig(stoi(word),1));
-                i++;
+                i = 1;
+                while(getline(str, word, ','))
+                {
+                    if(i == rowNum && isdigit(word[0]) && word[0] != 0) hist.add_data(dig(stoi(word),1));
+                    i++;
+                }
             }
+            
 		}
 	}
 	else
 		cout<<"Could not open the file\n";
 
     data.close();
+    
 
     ofstream outData;
 
