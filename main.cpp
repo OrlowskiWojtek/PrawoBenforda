@@ -55,7 +55,7 @@ class Histogram
 int main()
 {
     string dataName= "Iran_pres_2009.csv";
-    int rowNum = 4;   
+    int rowNum = 7;   
     
     
     ifstream data;
